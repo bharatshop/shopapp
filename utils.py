@@ -1,9 +1,9 @@
 import whisper
 
-model = whisper.load_model("tiny")
+model = whisper.load_model("base")
 
-def trascribe(audio):
-  text = model.transcribe(audio)
+def transcribe(audiopath):
+  text = model.transcribe(audiopath, fp16=False)
   return text['text']
 
-print(trascribe('/workspaces/shopapp/audio.wav'))
+print(transcribe('/workspaces/shopapp/audio.wav'))
